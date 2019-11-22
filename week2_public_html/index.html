@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf8">
   <title>Example</title>
@@ -13,9 +13,15 @@
   </ul>
   <h3>Add user</h3>
   <form action="http://localhost:3000/user" method="post" class="light-border">
-    <input class="light-border" type="text" name="name" placeholder="Name" required>
-    <input class="light-border" type="email" name="email" placeholder="email" required>
-    <input class="light-border" type="password" name="passwd" placeholder="Password" required>
+    <label>
+      <input class="light-border" type="text" name="name" placeholder="Name" required>
+    </label>
+    <label>
+      <input class="light-border" type="email" name="email" placeholder="email" required>
+    </label>
+    <label>
+      <input class="light-border" type="password" name="passwd" placeholder="Password" required>
+    </label>
     <button class="light-border" type="submit">Save</button>
   </form>
 </div>

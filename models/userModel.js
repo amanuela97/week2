@@ -25,32 +25,21 @@ const getUser = async (params) => {
   }
 };
 
+const addUser = async (params) => {
+  try {
+    const [rows] = await promisePool.execute(
+        'INSERT INTO wop_user (name, email, password) VALUES (?, ?, ?);',
+        params,
+    );
+    return rows;
+  } catch (e) {
+    console.log('error', e.message);
+    return {error: 'error in database query'};
+  }
+};
+
 module.exports = {
   getAllUsers,
   getUser,
+  addUser,
 };
-
-
-
-
-
-
-/*'use strict';
-const users = [
-  {
-    id: '1',
-    name: 'John Doe',
-    email: 'john@metropolia.fi',
-    password: '1234',
-  },
-  {
-    id: '2',
-    name: 'Jane Doez',
-    email: 'jane@metropolia.fi',
-    password: 'qwer',
-  },
-];
-
-module.exports = {
-  users,
-};*/

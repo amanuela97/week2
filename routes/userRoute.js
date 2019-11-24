@@ -18,18 +18,3 @@ router.delete('/', (req, res) => {
 });
 
 module.exports = router;
-
-
-/*
-catRouter.post('/user', (req, res) => {
-    res.send('With this endpoint you can add users.');
-});
-
-catRouter.put('/user', (req,res) => {
-    res.send('With this endpoint you can edit users.');
-});
-
-catRouter.delete('/user', (req,res) => {
-    res.send('With this endpoint you can delete users.');
-});*/
-

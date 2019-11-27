@@ -15,5 +15,6 @@ const userRoute = require('./routes/userRoute');
 
 app.use('/cat', catRoute);
 app.use('/user', userRoute);
+app.use('/thumbnails', express.static('thumbnails'));
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

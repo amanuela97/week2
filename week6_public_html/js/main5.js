@@ -81,12 +81,13 @@ const createCatCards = (cats) => {
                 const response = await fetch(url + '/cat/' + cat.cat_id, fetchOptions);
                 const json = await response.json();
                 console.log('delete response', json);
-                getCat();
+                await getCat();
             }
             catch (e) {
                 console.log(e.message());
             }
         });
+
 
         const li = document.createElement('li');
         li.classList.add('light-border');
@@ -174,7 +175,7 @@ addForm.addEventListener('submit', async (evt) => {
     const response = await fetch(url + '/cat', fetchOptions);
     const json = await response.json();
     console.log('add response', json);
-    getCat();
+    await getCat();
 });
 
 // submit modify form
@@ -194,7 +195,7 @@ modForm.addEventListener('submit', async (evt) => {
     const response = await fetch(url + '/cat', fetchOptions);
     const json = await response.json();
     console.log('modify response', json);
-    getCat();
+    await getCat();
 });
 
 // login
@@ -222,8 +223,8 @@ loginForm.addEventListener('submit', async (evt) => {
         logOut.style.display = 'block';
         main.style.display = 'block';
         userInfo.innerHTML = `Hello ${json.user.name}`;
-        getCat();
-        getUsers();
+        await getCat();
+        await getUsers();
     }
 });
 
@@ -273,8 +274,8 @@ addUserForm.addEventListener('submit', async (evt) => {
     logOut.style.display = 'block';
     main.style.display = 'block';
     userInfo.innerHTML = `Hello ${json.user.name}`;
-    getCat();
-    getUsers();
+    await getCat();
+    await getUsers();
 });
 
 // when app starts, check if token exists and hide login form, show logout button and main content, get cats and users
@@ -285,3 +286,7 @@ if (sessionStorage.getItem('token')) {
     getCat();
     getUsers();
 }
+
+// delete this if/when login works
+getCat();
+getUsers();
